@@ -1,28 +1,69 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section>
+    <h2>Light box</h2>
+    <LightBox
+      :thumbnails="lightbox.images.thumbnails"
+      :largeImages="lightbox.images.large"
+      :thumbnailsPath="lightbox.thumbnailsPath"
+      :largePath="lightbox.largePath"
+      :captions="lightbox.captions"
+      class="lightBox"
+    />
+    <hr>
+    <Accordion :accordionItems="accordion"/>
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import LightBox from "@/components/LightBox.vue";
+import Accordion from "@/components/Accordion.vue";
 export default {
-  name: 'app',
+  name: "app",
+  data() {
+    return {
+      lightbox: {
+        images: {
+          thumbnails: ["1.jpg", "2.jpg", "3.jpg"],
+          large: ["1.jpg", "2.jpg", "3.jpg"]
+        },
+        captions: ["caption 1", "cap 2", "caption 3"],
+        thumbnailsPath: "/img/sea/thumbnails/",
+        largePath: "/img/sea/large/"
+      },
+      accordion: [
+        {
+          title: "title one",
+          content: "content example here",
+          active: true
+        },
+        {
+          title: "title two",
+          content: "content example here",
+          active: false
+        },
+        {
+          title: "title three",
+          content: "content example here",
+          active: false
+        }
+      ]
+    };
+  },
   components: {
-    HelloWorld
+    LightBox,
+    Accordion
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang ="scss">
+.light-box {
+  &__thumbnail {
+    margin: 20px;
+    width: 200px;
+  }
+}
+img {
+  max-width: 100%;
 }
 </style>
