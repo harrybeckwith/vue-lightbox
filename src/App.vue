@@ -10,13 +10,12 @@
       class="lightBox"
     />
     <hr>
-    <Accordion :accordionItems="accordion"/>
   </section>
 </template>
 
 <script>
 import LightBox from "@/components/LightBox.vue";
-import Accordion from "@/components/Accordion.vue";
+
 export default {
   name: "app",
   data() {
@@ -26,32 +25,14 @@ export default {
           thumbnails: ["1.jpg", "2.jpg", "3.jpg"],
           large: ["1.jpg", "2.jpg", "3.jpg"]
         },
-        captions: ["caption 1", "cap 2", "caption 3"],
+        captions: ["caption 1", "caption 2", "caption 3"],
         thumbnailsPath: "/img/sea/thumbnails/",
         largePath: "/img/sea/large/"
-      },
-      accordion: [
-        {
-          title: "title one",
-          content: "content example here",
-          active: true
-        },
-        {
-          title: "title two",
-          content: "content example here",
-          active: false
-        },
-        {
-          title: "title three",
-          content: "content example here",
-          active: false
-        }
-      ]
+      }
     };
   },
   components: {
-    LightBox,
-    Accordion
+    LightBox
   }
 };
 </script>
